@@ -1,3 +1,7 @@
+class array:
+    '''
+    This class imitates NumPy's array class
+    '''
     def __init__(self, dt):
         # Initialize error flag
         self.flag = False
@@ -24,3 +28,10 @@
             self.data = None
             self.size = None
             self.shape = None
+    
+    # Interactive prompt output overload - not required by the project
+    # Sets the output in the interactive prompt to the data list, helpful for
+    # testing and visualizing this class
+    def __repr__(self):
+        formatted_array = str(self.data).replace('],', '],\n')
+        return formatted_array
