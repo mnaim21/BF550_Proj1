@@ -154,8 +154,112 @@ class array:
             for row in self:
                 for elem in row:
                     s += elem
-            return s
-        
+            return s 
+
+    # Add method 
+    def __add__(self):
+        # For every row starting with i in A
+        for i in range(len(A)):
+            # Initialized list to store the values for the C array
+            temp = []
+            # Storing the length of each row
+            l = len(A[i])
+            # For every value (j) in row i, column l
+            for j in range(l):
+                # Add i and j from arrays A and B
+                c = A[i][j] + B[i][j]
+                # Append the array values into the initialized list
+                temp.append(c)
+            # Appending the array values into the initialized array
+            C.append(temp)
+        return C
+
+    # Multiplication method            
+    def __mul__(self):
+        # For every row starting with i in A
+        for i in range(len(A)):
+            # Initialized list to store the values for the C array
+            temp = []
+            # Storing the length of each row
+            l = len(A[i])
+            # For every value (j) in row i, column l
+            for j in range(l):
+                # Multiple i and j from arrays A and B
+                c = A[i][j] * B[i][j]
+                # Append the array values into the initialized list
+                temp.append(c)
+            # Appending the array values into the initialized array
+            C.append(temp)
+        return C
+
+    # Subtraction method        
+    def __sub__(self):
+        # For every row starting with i in A
+        for i in range(len(A)):
+            # Initialized list to store the values for the C array
+            temp = []
+            # Storing the length of each row
+            l = len(A[i])
+            # For every value (j) in row i, column l
+            for j in range(l):
+                # Subtract i and j from arrays A and B
+                c = A[i][j] - B[i][j]
+                # Append the array values into the initialized list
+                temp.append(c)
+            # Appending the array values into the initialized array
+            C.append(temp)
+        return C
+
+    # Division method
+    def __truediv__(self):
+        # For every row starting with i in A
+        for i in range(len(A)):
+            # Initialized list to store the values for the C array
+            temp = []
+            # Storing the length of each row
+            l = len(A[i])
+            # For every value (j) in row i, column l
+            for j in range(l):
+                # Divide i and j from arrays A and B
+                c = A[i][j] / B[i][j]
+                # Append the array values into the initialized list
+                temp.append(c)
+            # Appending the array values into the initialized array
+            C.append(temp)
+        return C
+
+    # Negation method
+    def __neg__(self):
+        # For every row starting with i in A
+        for i in range(len(A)):
+            # Initialized list to store the values for the C array
+            temp = []
+            # Storing the length of each row
+            l = len(A[i])
+            # For every value (j) in row i, column l
+            for j in range(l):
+                # Negate (aka multiple -1) to every i and j value
+                A[i][j] = A[i][j] * -1
+        return A
+
+    # Exponentiation method
+    def __pow__(self):
+        # For every row starting with i in A
+        for i in range(len(A)):
+            # Initialized list to store the values for the C array
+            temp = []
+            # Storing the length of each row
+            l = len(A[i])
+            # For every value (j) in row i, column l
+            for j in range(l):
+                # Exponentiate i and j of A by i and j of B
+                c = A[i][j] ** B[i][j]
+                # Append the array values into the initialized list
+                temp.append(c)
+            # Appending the array values into the initialized array
+            C.append(temp)      
+        return C    
+
         
     def mean(self, dim):
     """To calculate the mean of the elements taking optional arguments from sum"""
