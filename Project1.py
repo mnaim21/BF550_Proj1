@@ -33,7 +33,7 @@ class array:
     # organized into variables by column
     def var(self):
         # Takes mean of columns
-        mean_vector = self.mean()
+        mean_vector = self.mean(1)
         # Transpose mean to begin creation of mean matrix
         mean_vector = mean_vector.transpose()
         # Creates list of 1s that will be used to manipulate the mean_vector
@@ -133,9 +133,9 @@ class array:
         elif (dim == 1):        
             csum = 0
             a = [[]]
-            for i in range(len(self.data[0])):
+            for i in range(self.shape[1]):
                 csum = 0
-                for j in range(len(self.data)):
+                for j in range(self.shape[0]):
                     csum += self.data[j][i]
                 a[0].append(csum)
             return array(a)    
@@ -164,8 +164,8 @@ class array:
                     c = self.data[i][j] + B
                     # Append the array values into the initialized list
                     temp.append(c)
-            # Appending the array values into the initialized array
-            C.append(temp)
+                # Appending the array values into the initialized array
+                C.append(temp)
         else:
             # For every row starting with i in A
             for i in range(len(self.data)):
@@ -177,10 +177,10 @@ class array:
                 for j in range(l):
                     # Add i and j from arrays A and B
                     c = self.data[i][j] + B.data[i][j]
-                        # Append the array values into the initialized list
-                        temp.append(c)
-                    # Appending the array values into the initialized array
-                    C.append(temp)
+                    # Append the array values into the initialized list
+                    temp.append(c)
+                # Appending the array values into the initialized array
+                C.append(temp)
         return array(C)
     
 
@@ -190,14 +190,14 @@ class array:
         C = []
         if (type(B) == float) or (type(B) == int):
             for i in range(len(self.data)):
-            # Initialized list to store the values for the C array
-            temp = []
-            # Storing the length of each row
-            l = len(self.data[i])
-            # For every value (j) in row i, column l
-            for j in range(l):
-                # Multiplying i and j from arrays A and B
-                c = self.data[i][j] * B
+                # Initialized list to store the values for the C array
+                temp = []
+                # Storing the length of each row
+                l = len(self.data[i])
+                # For every value (j) in row i, column l
+                for j in range(l):
+                    # Multiplying i and j from arrays A and B
+                    c = self.data[i][j] * B
                     # Append the array values into the initialized list
                     temp.append(c)
                 # Appending the array values into the initialized array
@@ -213,10 +213,10 @@ class array:
                 for j in range(l):
                     # Multiplying i and j from arrays A and B
                     c = self.data[i][j] * B.data[i][j]
-                        # Append the array values into the initialized list
-                        temp.append(c)
-                    # Appending the array values into the initialized array
-                    C.append(temp)
+                    # Append the array values into the initialized list
+                    temp.append(c)
+                # Appending the array values into the initialized array
+                C.append(temp)
         return array(C)
     
     # Subtraction method        
@@ -225,14 +225,14 @@ class array:
         C = []
         if (type(B) == float) or (type(B) == int):
             for i in range(len(self.data)):
-            # Initialized list to store the values for the C array
-            temp = []
-            # Storing the length of each row
-            l = len(self.data[i])
-            # For every value (j) in row i, column l
-            for j in range(l):
-                # Subtracting i and j from arrays A and B
-                c = self.data[i][j] - B
+                # Initialized list to store the values for the C array
+                temp = []
+                # Storing the length of each row
+                l = len(self.data[i])
+                # For every value (j) in row i, column l
+                for j in range(l):
+                    # Subtracting i and j from arrays A and B
+                    c = self.data[i][j] - B
                     # Append the array values into the initialized list
                     temp.append(c)
                 # Appending the array values into the initialized array
@@ -248,10 +248,10 @@ class array:
                 for j in range(l):
                     # Subtracting i and j from arrays A and B
                     c = self.data[i][j] - B.data[i][j]
-                        # Append the array values into the initialized list
-                        temp.append(c)
-                    # Appending the array values into the initialized array
-                    C.append(temp)
+                    # Append the array values into the initialized list
+                    temp.append(c)
+                # Appending the array values into the initialized array
+                C.append(temp)
         return array(C)
     
     # Division method
@@ -259,14 +259,14 @@ class array:
         C = []
         if (type(B) == float) or (type(B) == int):
             for i in range(len(self.data)):
-            # Initialized list to store the values for the C array
-            temp = []
-            # Storing the length of each row
-            l = len(self.data[i])
-            # For every value (j) in row i, column l
-            for j in range(l):
-                # Dividing i and j from arrays A and B
-                c = self.data[i][j] / B
+                # Initialized list to store the values for the C array
+                temp = []
+                # Storing the length of each row
+                l = len(self.data[i])
+                # For every value (j) in row i, column l
+                for j in range(l):
+                    # Dividing i and j from arrays A and B
+                    c = self.data[i][j] / B
                     # Append the array values into the initialized list
                     temp.append(c)
                 # Appending the array values into the initialized array
@@ -282,27 +282,27 @@ class array:
                 for j in range(l):
                     # Dividing i and j from arrays A and B
                     c = self.data[i][j] / B.data[i][j]
-                        # Append the array values into the initialized list
-                        temp.append(c)
-                    # Appending the array values into the initialized array
-                    C.append(temp)
+                    # Append the array values into the initialized list
+                    temp.append(c)
+                # Appending the array values into the initialized array
+                C.append(temp)
         return array(C)
     
     # Negation method
-    def __neg__(self, B):
+    def __neg__(self):
         A = []
         """ Negating a single array element-wise """
         # For every row starting with i in A
-        for i in range(len(A)):
+        for i in range(len(self.data)):
             # Initialized list to store the values for the C array
             temp = []
             # Storing the length of each row
-            l = len(A[i])
+            l = len(self.data[i])
             # For every value (j) in row i, column l
             for j in range(l):
                 # Negate (aka multiple -1) to every i and j value
-                A[i][j] = A[i][j] * -1
-                temp.append(A[i][j])
+                self.data[i][j] = self.data[i][j] * -1
+                temp.append(self.data[i][j])
             A.append(temp)
         return array(A)
 
@@ -312,14 +312,14 @@ class array:
         C = []
         if (type(B) == float) or (type(B) == int):
             for i in range(len(self.data)):
-            # Initialized list to store the values for the C array
-            temp = []
-            # Storing the length of each row
-            l = len(self.data[i])
-            # For every value (j) in row i, column l
-            for j in range(l):
-                # Exponentiating i and j from arrays A and B
-                c = self.data[i][j] ** B
+                # Initialized list to store the values for the C array
+                temp = []
+                # Storing the length of each row
+                l = len(self.data[i])
+                # For every value (j) in row i, column l
+                for j in range(l):
+                    # Exponentiating i and j from arrays A and B
+                    c = self.data[i][j] ** B
                     # Append the array values into the initialized list
                     temp.append(c)
                 # Appending the array values into the initialized array
@@ -335,17 +335,17 @@ class array:
                 for j in range(l):
                     # Exponentiating i and j from arrays A and B
                     c = self.data[i][j] ** B.data[i][j]
-                        # Append the array values into the initialized list
-                        temp.append(c)
-                    # Appending the array values into the initialized array
-                    C.append(temp)
+                    # Append the array values into the initialized list
+                    temp.append(c)
+                # Appending the array values into the initialized array
+                C.append(temp)
         return array(C)
     
         
     def mean(self, dim):
         """To calculate the mean of the elements taking optional arguments from sum"""    
-        if dim == 0:  #column wise 
-            mean = self.sum(dim)/len(self.data[0])  
-        elif dim == 1: #row wise        
-            mean = self.sum(dim)/len(self.data)
-        return array(mean)
+        if dim == 0:  #column wise
+            mean = self.sum(dim)/self.shape[1]
+        elif dim == 1: #row wise      
+            mean = self.sum(dim)/self.shape[0]
+        return mean
