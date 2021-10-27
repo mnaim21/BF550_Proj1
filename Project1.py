@@ -29,6 +29,33 @@ class array:
             self.size = None
             self.shape = None
     
+        # Caluclates a covariance matrix, assumes that data in initial matrix is
+    # organized into variables by column
+    def var(self):
+        # Takes mean of columns
+        mean_vector = self.mean()
+        # Transpose mean to begin creation of mean matrix
+        mean_vector = mean_vector.transpose()
+        # Creates list of 1s that will be used to manipulate the mean_vector
+        ones_list = []
+        for x in range(0, self.shape[0]):
+            ones_list.append(1)
+        # Adapt ones list into ones vector
+        ones_vector = array(ones_list)
+        # Dot product of mean_vector and ones_vector to create matrix with
+        # number of rows equal to initial matrix and column means for each
+        # value
+        mean_matrix = mean_vector.dot(ones_vector)
+        # Transpose again to get mean_matrix in correct orientation
+        mean_matrix = mean_matrix.transpose()
+        # Initial matrix - mean
+        temp_matrix = self - mean_matrix
+        # Dot product of transposed temp_matrix and temp matrix
+        temp_matrix = temp_matrix.transpose().dot(temp_matrix)
+        # Divide temp_matrix by number of rows in initial matrix
+        covariance_matrix = temp_matrix / self.shape[0]
+        return covariance_matrix
+    
     # Interactive prompt output overload - not required by the project
     # Sets the output in the interactive prompt to the data list, helpful for
     # testing and visualizing this class
