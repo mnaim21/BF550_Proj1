@@ -29,7 +29,7 @@ class array:
             self.size = None
             self.shape = None
     
-        # Caluclates a covariance matrix, assumes that data in initial matrix is
+    # Caluclates a covariance matrix, assumes that data in initial matrix is
     # organized into variables by column
     def var(self):
         # Takes mean of columns
