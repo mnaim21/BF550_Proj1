@@ -113,12 +113,12 @@ class array:
             # Appending the computed row to the C matrix
             C.append(row)
         
-        return C   
+        return array(C)   
     
 
     def sum(self, dim = None ):
     
-    """to calculate the sum of the array for all elements as default, row wise and column wise as optional arguments"""
+        """to calculate the sum of the array for all elements as default, row wise and column wise as optional arguments"""
         b = []
         if (dim == 1):
         #row wise (dim == 1) works
@@ -128,7 +128,7 @@ class array:
                 #sum += self.data[i][j];
                     rSum = rSum + j;
                 b.append([rSum])   
-            return b
+            return array(b)
     
     
     #column wise (dim == 0)
@@ -171,7 +171,7 @@ class array:
                 temp.append(c)
             # Appending the array values into the initialized array
             C.append(temp)
-        return C
+        return array(C)
 
     # Multiplication method            
     def __mul__(self):
@@ -192,7 +192,7 @@ class array:
                 temp.append(c)
             # Appending the array values into the initialized array
             C.append(temp)
-        return C
+        return array(C)
 
     # Subtraction method        
     def __sub__(self):
@@ -213,7 +213,7 @@ class array:
                 temp.append(c)
             # Appending the array values into the initialized array
             C.append(temp)
-        return C
+        return array(C)
 
     # Division method
     def __truediv__(self):
@@ -234,7 +234,7 @@ class array:
                 temp.append(c)
             # Appending the array values into the initialized array
             C.append(temp)
-        return C
+        return array(C)
 
     # Negation method
     def __neg__(self):
@@ -252,7 +252,7 @@ class array:
                 self.data[i][j] = self.data[i][j] * -1
                 temp.append(self.data[i][j])
                A.append(temp)
-        return A
+        return array(A)
 
     # Exponentiation method
     def __pow__(self):
@@ -273,11 +273,11 @@ class array:
                 temp.append(c)
             # Appending the array values into the initialized array
             C.append(temp)      
-        return C    
+        return array(C)    
 
         
     def mean(self, dim):
-    """To calculate the mean of the elements taking optional arguments from sum"""
+        """To calculate the mean of the elements taking optional arguments from sum"""
     
         if dim == 0:  #column wise
         
