@@ -128,7 +128,7 @@ class array:
                 #sum += self.data[i][j];
                     rSum = rSum + j;
                 b.append([rSum])   
-            return b
+            return array(b)
     
     
     #column wise (dim == 0)
@@ -143,7 +143,7 @@ class array:
 
                     csum += self.data[j][i]
                 a[0].append(csum)
-            return a
+            return array(a)
     
         elif (dim == None):
             s = 0
