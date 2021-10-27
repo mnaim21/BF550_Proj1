@@ -153,9 +153,8 @@ class array:
             return s 
 
     # Add method 
-    def __add__(self):
+    def __add__(self, B):
         """ Adding two arrays element-wise """
-        B = []
         C = []
         # For every row starting with i in A
         for i in range(len(self.data)):
@@ -166,7 +165,7 @@ class array:
             # For every value (j) in row i, column l
             for j in range(l):
                 # Add i and j from arrays A and B
-                c = self.data[i][j] + B[i][j]
+                c = self.data[i][j] + B.data[i][j]
                 # Append the array values into the initialized list
                 temp.append(c)
             # Appending the array values into the initialized array
@@ -174,9 +173,8 @@ class array:
         return array(C)
 
     # Multiplication method            
-    def __mul__(self):
+    def __mul__(self, B):
         """ Multiplying two arrays element-wise """
-        B = []
         C = []
         # For every row starting with i in A
         for i in range(len(self.data)):
@@ -187,7 +185,7 @@ class array:
             # For every value (j) in row i, column l
             for j in range(l):
                 # Multiple i and j from arrays A and B
-                c = self.data[i][j] * B[i][j]
+                c = self.data[i][j] * B.data[i][j]
                 # Append the array values into the initialized list
                 temp.append(c)
             # Appending the array values into the initialized array
@@ -195,9 +193,8 @@ class array:
         return array(C)
 
     # Subtraction method        
-    def __sub__(self):
+    def __sub__(self, B):
         """ Subtracting two arrays element-wise """
-        B = []
         C = []
         # For every row starting with i in A
         for i in range(len(self.data)):
@@ -208,7 +205,7 @@ class array:
             # For every value (j) in row i, column l
             for j in range(l):
                 # Subtract i and j from arrays A and B
-                c = self.data[i][j] - B[i][j]
+                c = self.data[i][j] - B.data[i][j]
                 # Append the array values into the initialized list
                 temp.append(c)
             # Appending the array values into the initialized array
@@ -216,9 +213,8 @@ class array:
         return array(C)
 
     # Division method
-    def __truediv__(self):
+    def __truediv__(self, B):
         """ Dividing two arrays element-wise """
-        B = []
         C = []
         # For every row starting with i in A
         for i in range(len(self.data)):
@@ -229,7 +225,7 @@ class array:
             # For every value (j) in row i, column l
             for j in range(l):
                 # Divide i and j from arrays A and B
-                c = self.data[i][j] / B[i][j]
+                c = self.data[i][j] / B.data[i][j]
                 # Append the array values into the initialized list
                 temp.append(c)
             # Appending the array values into the initialized array
@@ -255,9 +251,8 @@ class array:
         return array(A)
 
     # Exponentiation method
-    def __pow__(self):
+    def __pow__(self, B):
         """ Exponentiating two arrays element-wise """
-        B = []
         C = []
         # For every row starting with i in A
         for i in range(len(self.data)):
@@ -268,7 +263,7 @@ class array:
             # For every value (j) in row i, column l
             for j in range(l):
                 # Exponentiate i and j of A by i and j of B
-                c = self.data[i][j] ** B[i][j]
+                c = self.data[i][j] ** B
                 # Append the array values into the initialized list
                 temp.append(c)
             # Appending the array values into the initialized array
@@ -286,7 +281,3 @@ class array:
         elif dim == 1: #row wise
         
             mean = sum(dim)/len(self.data)
-
-        
-
-  
