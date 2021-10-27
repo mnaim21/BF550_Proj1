@@ -160,16 +160,16 @@ class array:
         C = []
         if (type(self.B) == float) or (type(self.B) == int):
             for i in range(len(self.data)):
-            # Initialized list to store the values for the C array
-            temp = []
-            # Storing the length of each row
-            l = len(self.data[i])
-            # For every value (j) in row i, column l
-            for j in range(l):
-                # Add i and j from arrays A and B
-                c = self.data[i][j] + B
-                # Append the array values into the initialized list
-                temp.append(c)
+                # Initialized list to store the values for the C array
+                temp = []
+                # Storing the length of each row
+                l = len(self.data[i])
+                # For every value (j) in row i, column l
+                for j in range(l):
+                    # Add i and j from arrays A and B
+                    c = self.data[i][j] + B
+                    # Append the array values into the initialized list
+                    temp.append(c)
             # Appending the array values into the initialized array
             C.append(temp)
         else:
