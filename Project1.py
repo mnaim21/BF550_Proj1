@@ -73,7 +73,7 @@ class array:
             for j in range(rows):
                 row.append(self.data[j][i])
             A.append(row)
-        return A
+        return array(A)
     
     def __getitem__(self, key):
         # Getting the indices i,j from the key variable which is a tuple
@@ -142,7 +142,7 @@ class array:
 
                     csum += self.data[j][i]
                 a[0].append(csum)
-            return a
+            return array(a)
     
         elif (dim == None):
             s = 0
@@ -150,7 +150,7 @@ class array:
             for row in self.data:
                 for elem in row:
                     s += elem
-            return s 
+            return array(s) 
 
     # Add method 
     def __add__(self, B):
