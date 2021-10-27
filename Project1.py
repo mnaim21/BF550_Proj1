@@ -128,23 +128,17 @@ class array:
                 #sum += self.data[i][j];
                     rSum = rSum + j;
                 b.append([rSum])   
-            return array(b)
-    
-    
+            return array(b)    
     #column wise (dim == 0)
-        elif (dim == 1):
-        
+        elif (dim == 1):        
             csum = 0
             a = [[]]
-
             for i in range(len(self.data[0])):
                 csum = 0
                 for j in range(len(self.data)):
-
                     csum += self.data[j][i]
                 a[0].append(csum)
-            return array(a)
-    
+            return array(a)    
         elif (dim == None):
             s = 0
         #sum of all elements (default) works
@@ -290,12 +284,10 @@ class array:
 
         
     def mean(self, dim):
-        """To calculate the mean of the elements taking optional arguments from sum"""
-    
-        if dim == 0:  #column wise
-        
-            mean = sum(dim)/len(self.data[0])
-        
-        elif dim == 1: #row wise
-        
+        """To calculate the mean of the elements taking optional arguments from sum"""    
+        if dim == 0:  #column wise 
+            mean = sum(dim)/len(self.data[0])  
+            return array(mean)
+        elif dim == 1: #row wise        
             mean = sum(dim)/len(self.data)
+            return array(mean)
