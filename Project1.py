@@ -152,12 +152,12 @@ class array:
                     s += elem
             return s 
 
-    # Add method 
+    # Add method  
     def __add__(self, B):
         """ Adding two arrays element-wise """
         C = []
-        # For every row starting with i in A
-        for i in range(len(self.data)):
+        if (type(self.B) == float) or (type(self.B) == int):
+            for i in range(len(self.data)):
             # Initialized list to store the values for the C array
             temp = []
             # Storing the length of each row
@@ -165,12 +165,28 @@ class array:
             # For every value (j) in row i, column l
             for j in range(l):
                 # Add i and j from arrays A and B
-                c = self.data[i][j] + B.data[i][j]
+                c = self.data[i][j] + B
                 # Append the array values into the initialized list
                 temp.append(c)
             # Appending the array values into the initialized array
             C.append(temp)
+        else:
+            # For every row starting with i in A
+            for i in range(len(self.data)):
+                # Initialized list to store the values for the C array
+                temp = []
+                # Storing the length of each row
+                l = len(self.data[i])
+                # For every value (j) in row i, column l
+                for j in range(l):
+                    # Add i and j from arrays A and B
+                    c = self.data[i][j] + B.data[i][j]
+                    # Append the array values into the initialized list
+                    temp.append(c)
+                # Appending the array values into the initialized array
+                C.append(temp)
         return array(C)
+    
 
     # Multiplication method            
     def __mul__(self, B):
