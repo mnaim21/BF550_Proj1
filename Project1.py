@@ -251,7 +251,7 @@ class array:
                 # Negate (aka multiple -1) to every i and j value
                 self.data[i][j] = self.data[i][j] * -1
                 temp.append(self.data[i][j])
-               A.append(temp)
+            A.append(temp)
         return array(A)
 
     # Exponentiation method
