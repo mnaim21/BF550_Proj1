@@ -152,7 +152,7 @@ class array:
     def __add__(self, B):
         """ Adding two arrays element-wise """
         C = []
-        if (type(self.B) == float) or (type(self.B) == int):
+        if (type(B) == float) or (type(B) == int):
             for i in range(len(self.data)):
                 # Initialized list to store the values for the C array
                 temp = []
