@@ -116,7 +116,7 @@ class array:
         return array(C)   
     
 
-    def sum(self, dim = None ):
+    def sum(self, dim = None):
     
         """to calculate the sum of the array for all elements as default, row wise and column wise as optional arguments"""
         b = []
@@ -150,7 +150,7 @@ class array:
             for row in self.data:
                 for elem in row:
                     s += elem
-            return array(s) 
+            return s 
 
     # Add method 
     def __add__(self, B):
