@@ -120,7 +120,7 @@ class array:
     
         """to calculate the sum of the array for all elements as default, row wise and column wise as optional arguments"""
         b = []
-        if (dim == 1):
+        if (dim == 0):
         #row wise (dim == 1) works
             for i in self.data :
                 rSum = 0;
@@ -128,21 +128,22 @@ class array:
                 #sum += self.data[i][j];
                     rSum = rSum + j;
                 b.append([rSum])   
-            return array(b)
+            return b
     
     
     #column wise (dim == 0)
-        elif (dim == 0):
+        elif (dim == 1):
         
             csum = 0
             a = [[]]
 
             for i in range(len(self.data[0])):
+                csum = 0
                 for j in range(len(self.data)):
 
                     csum += self.data[j][i]
                 a[0].append(csum)
-            return array(a)
+            return a
     
         elif (dim == None):
             s = 0
@@ -151,6 +152,7 @@ class array:
                 for elem in row:
                     s += elem
             return s 
+
 
     # Add method  
     def __add__(self, B):
