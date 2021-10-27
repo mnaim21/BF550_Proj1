@@ -62,3 +62,55 @@ class array:
     def __repr__(self):
         formatted_array = str(self.data).replace('],', '],\n')
         return formatted_array
+    
+    def transpose(self):
+        A = []
+        # Getting the number of rows and columns of the array object
+        rows, cols = self.shape
+        # Finding the transpose by first looping through the columns and then the rows
+        for i in range(cols):
+            row = []
+            for j in range(rows):
+                row.append(self.data[j][i])
+            A.append(row)
+        return A
+    
+    def __getitem__(self, key):
+        # Getting the indices i,j from the key variable which is a tuple
+        i,j = key
+        try:
+            return self.data[i][j]
+        except Exception:
+            print("Error accessing the required element. Please recheck the row and column index.")
+            
+    def dot(self,B):
+        # If B is not an object of the array class then print an error statement and return
+        if(type(B).__name__!='array'):
+            print("Error : Please make sure the array is an object of the array class")
+            return
+        
+        A_rows,A_cols = self.shape
+        B_rows,B_cols = B.shape
+        
+        # Making sure the number of columns of the 1st matrix is not equal to the number of rows of the 2nd matrix
+        if(A_cols!=B_rows):
+            print("The number of columns of the 1st matrix is not equal to the number of rows of the 2nd matrix.")
+            return
+        
+        # Initializing a variable that holds the dot product
+        C = []
+        
+        for i in range(A_rows):
+            # Initializing a variable that holds one computed row
+            row = []
+            for j in range(B_cols):
+                # Initializing a variable that holds the sum of product of elements in the respective row and column of A and B
+                total = 0
+                # Computing the sum of product of elements in the respective row and column of A and B
+                for k in range(A_cols):
+                    total += self.data[i][k]*B[k,j]
+                row.append(total)
+            # Appending the computed row to the C matrix
+            C.append(row)
+        
+        return C   
