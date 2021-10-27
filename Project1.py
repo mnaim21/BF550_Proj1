@@ -286,8 +286,7 @@ class array:
     def mean(self, dim):
         """To calculate the mean of the elements taking optional arguments from sum"""    
         if dim == 0:  #column wise 
-            mean = sum(dim)/len(self.data[0])  
-            return array(mean)
+            mean = self.sum(dim)/len(self.data[0])  
         elif dim == 1: #row wise        
-            mean = sum(dim)/len(self.data)
-            return array(mean)
+            mean = self.sum(dim)/len(self.data)
+        return array(mean)
