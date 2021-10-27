@@ -158,6 +158,7 @@ class array:
 
     # Add method 
     def __add__(self):
+        C = []
         # For every row starting with i in A
         for i in range(len(A)):
             # Initialized list to store the values for the C array
@@ -176,6 +177,7 @@ class array:
 
     # Multiplication method            
     def __mul__(self):
+        C = []
         # For every row starting with i in A
         for i in range(len(A)):
             # Initialized list to store the values for the C array
@@ -194,6 +196,7 @@ class array:
 
     # Subtraction method        
     def __sub__(self):
+        C = []
         # For every row starting with i in A
         for i in range(len(A)):
             # Initialized list to store the values for the C array
@@ -212,6 +215,7 @@ class array:
 
     # Division method
     def __truediv__(self):
+        C = []
         # For every row starting with i in A
         for i in range(len(A)):
             # Initialized list to store the values for the C array
@@ -244,6 +248,7 @@ class array:
 
     # Exponentiation method
     def __pow__(self):
+        C = []
         # For every row starting with i in A
         for i in range(len(A)):
             # Initialized list to store the values for the C array
