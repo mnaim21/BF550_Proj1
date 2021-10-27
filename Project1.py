@@ -114,3 +114,60 @@ class array:
             C.append(row)
         
         return C   
+    
+    
+#B= 
+
+    def sum(self, dim = None ):
+    
+    """to calculate the sum of the array for all elements as default, row wise and column wise as optional arguments"""
+        b = []
+        if (dim == 1):
+        #row wise (dim == 1) works
+            for i in self :
+                rSum = 0;
+                for j in i: 
+                #sum += self[i][j];
+                    rSum = rSum + j;
+                b.append([rSum])   
+            return b
+    
+    
+    #column wise (dim == 0)
+        elif (dim == 0):
+        
+            csum = 0
+            a = [[]]
+
+            for i in range(len(self[0])):
+                for j in range(len(self)):
+
+                    csum += self[j][i]
+                a[0].append(csum)
+            return a
+      
+
+    
+        elif (dim == None):
+            s = 0
+        #sum of all elements (default) works
+            for row in self:
+                for elem in row:
+                    s += elem
+            return s
+        
+        
+    def mean(self, dim):
+    """To calculate the mean of the elements taking optional arguments from sum"""
+    
+        if dim == 0:  #column wise
+        
+            mean = sum(dim)/len(self[0])
+        
+        elif dim == 1: #row wise
+        
+            mean = sum(dim)/len(self)
+
+        
+
+  
