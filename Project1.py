@@ -115,8 +115,6 @@ class array:
         
         return C   
     
-    
-#B= 
 
     def sum(self, dim = None ):
     
@@ -124,10 +122,10 @@ class array:
         b = []
         if (dim == 1):
         #row wise (dim == 1) works
-            for i in self :
+            for i in self.data :
                 rSum = 0;
                 for j in i: 
-                #sum += self[i][j];
+                #sum += self.data[i][j];
                     rSum = rSum + j;
                 b.append([rSum])   
             return b
@@ -139,19 +137,17 @@ class array:
             csum = 0
             a = [[]]
 
-            for i in range(len(self[0])):
-                for j in range(len(self)):
+            for i in range(len(self.data[0])):
+                for j in range(len(self.data)):
 
-                    csum += self[j][i]
+                    csum += self.data[j][i]
                 a[0].append(csum)
             return a
-      
-
     
         elif (dim == None):
             s = 0
         #sum of all elements (default) works
-            for row in self:
+            for row in self.data:
                 for elem in row:
                     s += elem
             return s 
@@ -285,11 +281,11 @@ class array:
     
         if dim == 0:  #column wise
         
-            mean = sum(dim)/len(self[0])
+            mean = sum(dim)/len(self.data[0])
         
         elif dim == 1: #row wise
         
-            mean = sum(dim)/len(self)
+            mean = sum(dim)/len(self.data)
 
         
 
