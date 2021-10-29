@@ -53,7 +53,7 @@ class array:
         # Dot product of transposed temp_matrix and temp matrix
         temp_matrix = temp_matrix.transpose().dot(temp_matrix)
         # Divide temp_matrix by number of rows in initial matrix
-        covariance_matrix = temp_matrix / self.shape[0]
+        covariance_matrix = temp_matrix / (self.shape[0]-1)
         return covariance_matrix
     
     # Interactive prompt output overload - not required by the project
