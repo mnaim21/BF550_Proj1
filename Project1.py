@@ -102,19 +102,28 @@ class array:
         
         # If B is not a list and not an object of the array class then print an error statement and return
         if(type(B).__name__!='list' and type(B).__name__!='array'):
-            print("Error : Wrong input type.")
+            print("Error : wrong input type")
             return
-        # Converting B into an object of the array class if it is a nested list
+            
+        # Converting B into an object of the array class if it is a nested list 
         if(type(B).__name__=='list'):
             B = array(B)
+        # Making sure B is of the right format
+        if(B.flag==True):
+            return
         
         # Getting the number of rows and columns of the matrices
         A_rows,A_cols = self.shape
         B_rows,B_cols = B.shape
         
+        # Making sure B is non empty
+        if(B_rows==0 or B_cols==0 or A_rows==0 or A_cols==0):
+            print("Error: the arrays should be non empty")
+            return
+        
         # Making sure the number of columns in A is not equal to the number of rows in B
         if(A_cols!=B_rows):
-            print("The number of columns in the 1st matrix is not equal to the number of rows in the 2nd matrix.")
+            print("Error : the number of columns in the 1st matrix is not equal to the number of rows in the 2nd matrix.")
             return
         
         # Initializing a variable that holds the dot product
