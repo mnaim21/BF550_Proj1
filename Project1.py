@@ -1,3 +1,15 @@
+#########
+
+# Project 1
+# Group 7
+# Group members:
+    # Meghana Saradchandra Peshwa
+    # Dylan Beeber
+    # Vishwa Talati
+    # Maha Naim
+
+#########
+
 class array:
     '''
     This class imitates NumPy's array class
@@ -64,8 +76,9 @@ class array:
         return formatted_array
     
     def transpose(self):
+        """This method finds the transpose of a matrix"""
         A = []
-        # Getting the number of rows and columns of the array object
+        # Getting the number of rows and columns of the matrix
         rows, cols = self.shape
         # Finding the transpose by first looping through the columns and then the rows
         for i in range(cols):
@@ -76,6 +89,7 @@ class array:
         return array(A)
     
     def __getitem__(self, key):
+        """This method returns a element of the matrix at indices i and j"""
         # Getting the indices i,j from the key variable which is a tuple
         i,j = key
         try:
@@ -84,17 +98,23 @@ class array:
             print("Error accessing the required element. Please recheck the row and column index.")
             
     def dot(self,B):
-        # If B is not an object of the array class then print an error statement and return
-        if(type(B).__name__!='array'):
-            print("Error : Please make sure the array is an object of the array class")
-            return
+        """This method computes the dot product of 2 matrices"""
         
+        # If B is not a list and not an object of the array class then print an error statement and return
+        if(type(B).__name__!='list' and type(B).__name__!='array'):
+            print("Error : Wrong input type.")
+            return
+        # Converting B into an object of the array class if it is a nested list
+        if(type(B).__name__=='list'):
+            B = array(B)
+        
+        # Getting the number of rows and columns of the matrices
         A_rows,A_cols = self.shape
         B_rows,B_cols = B.shape
         
-        # Making sure the number of columns of the 1st matrix is not equal to the number of rows of the 2nd matrix
+        # Making sure the number of columns in A is not equal to the number of rows in B
         if(A_cols!=B_rows):
-            print("The number of columns of the 1st matrix is not equal to the number of rows of the 2nd matrix.")
+            print("The number of columns in the 1st matrix is not equal to the number of rows in the 2nd matrix.")
             return
         
         # Initializing a variable that holds the dot product
@@ -112,8 +132,8 @@ class array:
                 row.append(total)
             # Appending the computed row to the C matrix
             C.append(row)
-        
-        return array(C)   
+
+        return array(C)
     
 
     def sum(self, dim = None):
