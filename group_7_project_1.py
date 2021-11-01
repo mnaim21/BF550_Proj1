@@ -132,29 +132,29 @@ class array:
         b = []  #stores the sum of row elements
         if (dim == 0):  #if optional argument is zero
         #row wise 
-            for i in self.data : 
+            for i in self.data :         #loops over each ith row in data
                 rSum = 0;
-                for j in i: 
+                for j in i:              #loops over jth element in i
                 #sum += self.data[i][j];
-                    rSum = rSum + j;
-                b.append([rSum])   
+                    rSum = rSum + j;     #calculates the row wise sum
+                b.append([rSum])         #appends the sum 
             return array(b)    
         #column wise 
-        elif (dim == 1):        
+        elif (dim == 1):        #if the optional argument is 1, calculates column wise sum 
             csum = 0
             a = [[]]
-            for i in range(self.shape[1]):
+            for i in range(self.shape[1]): 
                 csum = 0
                 for j in range(self.shape[0]):
-                    csum += self.data[j][i]
-                a[0].append(csum)
-            return array(a)    
+                    csum += self.data[j][i]    #calculates column wise sum 
+                a[0].append(csum)              #appends the sum 
+            return array(a)                    
         elif (dim == None):
-            s = 0
+            s = 0 #initialises sum as 0
         #sum of all elements (default) 
-            for row in self.data:
-                for elem in row:
-                    s += elem
+            for row in self.data: #loops over each row in the data
+                for elem in row:  #Lopps over each element of that row
+                    s += elem     #stores the sum of all elements
             return s 
 
 
