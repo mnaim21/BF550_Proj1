@@ -52,7 +52,7 @@ class array:
     
     # Transpose method
     def transpose(self):
-        """This method finds the transpose of a matrix"""
+        """This method returns the transpose of a matrix."""
         A = []
         # Getting the number of rows and columns of the matrix
         rows, cols = self.shape
@@ -67,7 +67,7 @@ class array:
     
     # Get item method
     def __getitem__(self, key):
-        """This method returns a element of the matrix at indices i and j"""
+        """This method returns an element of the matrix at indices i and j which are stored in key."""
         # Getting the indices i,j from the key variable which is a tuple
         i,j = key
         try:
@@ -78,7 +78,8 @@ class array:
     
     # Dot product method        
     def dot(self,B):
-        """This method computes the dot product of 2 matrices"""
+        """This method returns the dot product of 2 matrices.
+        It first checks if the matrices are of the right format and then computes the dot product."""
         
         # If B is not a list and not an object of the array class then print an error statement and return
         if(type(B).__name__!='list' and type(B).__name__!='array'):
@@ -88,7 +89,7 @@ class array:
         # Converting B into an object of the array class if it is a nested list 
         if(type(B).__name__=='list'):
             B = array(B)
-        # Making sure B is of the right format
+        # return if B is not of the right format
         if(B.flag==True):
             return
         
@@ -96,7 +97,7 @@ class array:
         A_rows,A_cols = self.shape
         B_rows,B_cols = B.shape
         
-        # Making sure B is non empty
+        # Making sure A and B are non empty
         if(B_rows==0 or B_cols==0 or A_rows==0 or A_cols==0):
             print("Error: the arrays should be non empty")
             return
