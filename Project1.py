@@ -126,7 +126,7 @@ class array:
     
     
     # Sum method
-    def sum(self, dim = None):
+    def sums(self, dim = None):
         """to calculate the sum of the array for all elements as default, row wise and column wise as optional arguments"""
         b = []
         if (dim == 0):
@@ -267,6 +267,7 @@ class array:
     
     # Division method
     def __truediv__(self, B):
+        """ Dividing two arrays element-wise """
         C = []
         if (type(B) == float) or (type(B) == int):
             for i in range(len(self.data)):
@@ -366,7 +367,10 @@ class array:
     
     # Caluclates a covariance matrix, assumes that data in initial matrix is
     # organized into variables by column
+    # Uses the n-1 covariance method and treats columns as variables and
+    # rows as samples (opposite from numpy)
     def var(self):
+        """Generates covariance matrix"""
         # Takes mean of columns
         mean_vector = self.mean(1)
         # Transpose mean to begin creation of mean matrix
