@@ -159,7 +159,7 @@ class array:
 
     # Add method  
     def __add__(self, B):
-        """ Adding two arrays element-wise """
+        """ Checking first if the B input type is a float/int or a list, and then adding the value(s) to the A array element-wise """
         C = []
         if (type(B) == float) or (type(B) == int):
             for i in range(len(self.data)):
@@ -202,7 +202,7 @@ class array:
 
     # Multiplication method            
     def __mul__(self, B):
-        """ Multiplying two arrays element-wise """
+        """ Checking first if the B input type is a float/int or a list, and then multiplying the value(s) to the A array element-wise """
         C = []
         if (type(B) == float) or (type(B) == int):
             for i in range(len(self.data)):
@@ -245,7 +245,7 @@ class array:
     
     # Subtraction method        
     def __sub__(self, B):
-        """ Subtracting two arrays element-wise """
+        """ Checking first if the B input type is a float/int or a list, and then subtracting the value(s) to the A array element-wise """
         C = []
         if (type(B) == float) or (type(B) == int):
             for i in range(len(self.data)):
@@ -288,7 +288,7 @@ class array:
     
     # Division method
     def __truediv__(self, B):
-        """ Dividing two arrays element-wise """
+        """ Checking first if the B input type is a float/int or a list, and then dividing the value(s) against the A array element-wise """
         C = []
         if (type(B) == float) or (type(B) == int):
             for i in range(len(self.data)):
@@ -332,7 +332,7 @@ class array:
     # Negation method
     def __neg__(self):
         A = []
-        """ Negating a single array element-wise """
+        """ Go through each row, column value and negating a single array element-wise """
         # For every row starting with i in A
         for i in range(len(self.data)):
             # Initialized list to store the values for the C array
@@ -350,7 +350,7 @@ class array:
 
     # Exponentiation method
     def __pow__(self, B):
-        """ Exponentiating two arrays element-wise """
+        """ This method is able to exponentiate by both scalars and matrix, although matrix wasn't needed, and exponentiates the value(s) to the A array element-wise """
         C = []
         if (type(B) == float) or (type(B) == int):
             for i in range(len(self.data)):
@@ -399,10 +399,7 @@ class array:
     # Uses the n-1 covariance method and treats columns as variables and
     # rows as samples (opposite from numpy)
     def var(self):
-        """
-        Generates covariance matrix  - uses n-1 covariance method and treats
-        columns as variables and rows as samples/experiments
-        """
+        """Generates covariance matrix"""
         # Takes mean of columns
         mean_vector = self.mean(1)
         # Transpose mean to begin creation of mean matrix
