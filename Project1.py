@@ -399,7 +399,10 @@ class array:
     # Uses the n-1 covariance method and treats columns as variables and
     # rows as samples (opposite from numpy)
     def var(self):
-        """Generates covariance matrix"""
+        """
+        Generates covariance matrix  - uses n-1 covariance method and treats
+        columns as variables and rows as samples/experiments
+        """
         # Takes mean of columns
         mean_vector = self.mean(1)
         # Transpose mean to begin creation of mean matrix
