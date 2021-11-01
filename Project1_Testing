@@ -25,18 +25,20 @@ e.transpose().data == [[1, 2, 3, 4]]
 i.transpose().data ==[[1, 5, 9, 4], [2, 6, 1, 5], [3, 7, 2, 6], [4, 8, 3, 7]]
 
 # Sum
-a1.sum() == 18
-a1.sum(0).data == [[6], [6], [6]]
-a1.sum(1).data == [[6, 5, 7]]
-d.sum() == 10
-d.sum(0).data == [[10]]
-d.sum(1).data == [[1,2,3,4]]
-e.sum() == 10
-e.sum(0).data == [[1], [2], [3], [4]]
-e.sum(1).data == [[10]]
-i.sum() == 73
-i.sum(0).data == [[10], [26], [15], [22]]
-i.sum(1).data == [[19, 14, 18, 22]]
+a1.sums() == 18
+a1.sums(0).data == [[6], [6], [6]]
+a1.sums(1).data == [[6, 5, 7]]
+b1.sums(0).data
+b1.sums(1).data
+d.sums() == 10
+d.sums(0).data == [[10]]
+d.sums(1).data == [[1,2,3,4]]
+e.sums() == 10
+e.sums(0).data == [[1], [2], [3], [4]]
+e.sums(1).data == [[10]]
+i.sums() == 73
+i.sums(0).data == [[10], [26], [15], [22]]
+i.sums(1).data == [[19, 14, 18, 22]]
 
 # Addition
 (a1 + a2).data == [[3, 4, 4], [5, 7, 9], [6, 4, 2]]
