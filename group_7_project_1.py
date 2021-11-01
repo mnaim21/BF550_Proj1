@@ -129,17 +129,17 @@ class array:
     # Sum method
     def sums(self, dim = None):
         """to calculate the sum of the array for all elements as default, row wise and column wise as optional arguments"""
-        b = []
-        if (dim == 0):
-        #row wise (dim == 1) works
-            for i in self.data :
+        b = []  #stores the sum of row elements
+        if (dim == 0):  #if optional argument is zero
+        #row wise 
+            for i in self.data : 
                 rSum = 0;
                 for j in i: 
                 #sum += self.data[i][j];
                     rSum = rSum + j;
                 b.append([rSum])   
             return array(b)    
-    #column wise (dim == 0)
+        #column wise 
         elif (dim == 1):        
             csum = 0
             a = [[]]
@@ -151,7 +151,7 @@ class array:
             return array(a)    
         elif (dim == None):
             s = 0
-        #sum of all elements (default) works
+        #sum of all elements (default) 
             for row in self.data:
                 for elem in row:
                     s += elem
@@ -389,9 +389,9 @@ class array:
     def mean(self, dim):
         """To calculate the mean of the elements taking optional arguments from sum"""    
         if dim == 0:  #column wise
-            mean = self.sums(dim)/self.shape[1]
+            mean = self.sums(dim)/self.shape[1]  #takes the optional argument for dim = 0 from sum when the argument in mean for dim = 0
         elif dim == 1: #row wise      
-            mean = self.sums(dim)/self.shape[0]
+            mean = self.sums(dim)/self.shape[0]  #takes the optional argument for dim = 1 from sum when the argument in mean for dim = 1
         return mean
     
     
