@@ -176,6 +176,13 @@ class array:
                 # Appending the array values into the initialized array
                 C.append(temp)
         else:
+            # Turns B into an array if needed
+            if type(B) == list:
+                B = array(B)
+            # Checks if dimensions of arrays are equal
+            if self.size != B.size:
+                print("Error : array dimensions must be equal")
+                return
             # For every row starting with i in A
             for i in range(len(self.data)):
                 # Initialized list to store the values for the C array
@@ -212,6 +219,13 @@ class array:
                 # Appending the array values into the initialized array
                 C.append(temp)
         else:
+            # Turns B into an array if needed
+            if type(B) == list:
+                B = array(B)
+            # Checks if dimensions of arrays are equal
+            if self.size != B.size:
+                print("Error : array dimensions must be equal")
+                return
             # For every row starting with i in A
             for i in range(len(self.data)):
                 # Initialized list to store the values for the C array
@@ -248,6 +262,13 @@ class array:
                 # Appending the array values into the initialized array
                 C.append(temp)
         else:
+            # Turns B into an array if needed
+            if type(B) == list:
+                B = array(B)
+            # Checks if dimensions of arrays are equal
+            if self.size != B.size:
+                print("Error : array dimensions must be equal")
+                return
             # For every row starting with i in A
             for i in range(len(self.data)):
                 # Initialized list to store the values for the C array
@@ -284,6 +305,13 @@ class array:
                 # Appending the array values into the initialized array
                 C.append(temp)
         else:
+            # Turns B into an array if needed
+            if type(B) == list:
+                B = array(B)
+            # Checks if dimensions of arrays are equal
+            if self.size != B.size:
+                print("Error : array dimensions must be equal")
+                return
             # For every row starting with i in A
             for i in range(len(self.data)):
                 # Initialized list to store the values for the C array
@@ -318,6 +346,7 @@ class array:
                 temp.append(self.data[i][j])
             A.append(temp)
         return array(A)
+
 
     # Exponentiation method
     def __pow__(self, B):
