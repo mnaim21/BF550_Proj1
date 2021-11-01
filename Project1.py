@@ -41,32 +41,6 @@ class array:
             self.size = None
             self.shape = None
     
-    # Caluclates a covariance matrix, assumes that data in initial matrix is
-    # organized into variables by column
-    def var(self):
-        # Takes mean of columns
-        mean_vector = self.mean(1)
-        # Transpose mean to begin creation of mean matrix
-        mean_vector = mean_vector.transpose()
-        # Creates list of 1s that will be used to manipulate the mean_vector
-        ones_list = []
-        for x in range(0, self.shape[0]):
-            ones_list.append(1)
-        # Adapt ones list into ones vector
-        ones_vector = array(ones_list)
-        # Dot product of mean_vector and ones_vector to create matrix with
-        # number of rows equal to initial matrix and column means for each
-        # value
-        mean_matrix = mean_vector.dot(ones_vector)
-        # Transpose again to get mean_matrix in correct orientation
-        mean_matrix = mean_matrix.transpose()
-        # Initial matrix - mean
-        temp_matrix = self - mean_matrix
-        # Dot product of transposed temp_matrix and temp matrix
-        temp_matrix = temp_matrix.transpose().dot(temp_matrix)
-        # Divide temp_matrix by number of rows in initial matrix
-        covariance_matrix = temp_matrix / (self.shape[0]-1)
-        return covariance_matrix
     
     # Interactive prompt output overload - not required by the project
     # Sets the output in the interactive prompt to the data list, helpful for
@@ -75,6 +49,8 @@ class array:
         formatted_array = str(self.data).replace('],', '],\n')
         return formatted_array
     
+    
+    # Transpose method
     def transpose(self):
         """This method finds the transpose of a matrix"""
         A = []
@@ -88,6 +64,8 @@ class array:
             A.append(row)
         return array(A)
     
+    
+    # Get item method
     def __getitem__(self, key):
         """This method returns a element of the matrix at indices i and j"""
         # Getting the indices i,j from the key variable which is a tuple
@@ -96,7 +74,9 @@ class array:
             return self.data[i][j]
         except Exception:
             print("Error accessing the required element. Please recheck the row and column index.")
-            
+    
+    
+    # Dot product method        
     def dot(self,B):
         """This method computes the dot product of 2 matrices"""
         
@@ -144,9 +124,9 @@ class array:
 
         return array(C)
     
-
-    def sum(self, dim = None):
     
+    # Sum method
+    def sum(self, dim = None):
         """to calculate the sum of the array for all elements as default, row wise and column wise as optional arguments"""
         b = []
         if (dim == 0):
@@ -248,6 +228,7 @@ class array:
                 C.append(temp)
         return array(C)
     
+    
     # Subtraction method        
     def __sub__(self, B):
         """ Subtracting two arrays element-wise """
@@ -283,6 +264,7 @@ class array:
                 C.append(temp)
         return array(C)
     
+    
     # Division method
     def __truediv__(self, B):
         C = []
@@ -316,6 +298,7 @@ class array:
                 # Appending the array values into the initialized array
                 C.append(temp)
         return array(C)
+    
     
     # Negation method
     def __neg__(self):
@@ -370,7 +353,8 @@ class array:
                 C.append(temp)
         return array(C)
     
-        
+    
+    # Mean method    
     def mean(self, dim):
         """To calculate the mean of the elements taking optional arguments from sum"""    
         if dim == 0:  #column wise
@@ -378,3 +362,31 @@ class array:
         elif dim == 1: #row wise      
             mean = self.sum(dim)/self.shape[0]
         return mean
+    
+    
+    # Caluclates a covariance matrix, assumes that data in initial matrix is
+    # organized into variables by column
+    def var(self):
+        # Takes mean of columns
+        mean_vector = self.mean(1)
+        # Transpose mean to begin creation of mean matrix
+        mean_vector = mean_vector.transpose()
+        # Creates list of 1s that will be used to manipulate the mean_vector
+        ones_list = []
+        for x in range(0, self.shape[0]):
+            ones_list.append(1)
+        # Adapt ones list into ones vector
+        ones_vector = array(ones_list)
+        # Dot product of mean_vector and ones_vector to create matrix with
+        # number of rows equal to initial matrix and column means for each
+        # value
+        mean_matrix = mean_vector.dot(ones_vector)
+        # Transpose again to get mean_matrix in correct orientation
+        mean_matrix = mean_matrix.transpose()
+        # Initial matrix - mean
+        temp_matrix = self - mean_matrix
+        # Dot product of transposed temp_matrix and temp matrix
+        temp_matrix = temp_matrix.transpose().dot(temp_matrix)
+        # Divide temp_matrix by number of rows in initial matrix
+        covariance_matrix = temp_matrix / (self.shape[0]-1)
+        return covariance_matrix
