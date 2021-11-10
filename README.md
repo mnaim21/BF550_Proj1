@@ -4,11 +4,11 @@ This repository contains a collaborative code written to develop an array packag
 
 This package aims to replicate the code used to develop numpy. Using pure Python, it contains an array class, with different attributes and linear algebra and statistical methods.
 
-## Contributors:
+## Collaborators:
 Dylan Beeber - dylan.beeber@gmail.com
 
 Meghana Peshawa - meghapeshwa@gmail.com
 
-Vishwa Talati - 
+Vishwa Talati - vishwa98@bu.edu
 
 Maha Naim - mnaim21@bu.edu
