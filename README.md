@@ -6,6 +6,9 @@ This package aims to replicate the code used to develop numpy. Using pure Python
 
 ## Contributors:
 Dylan Beeber
+
 Meghana Peshawa
+
 Vishwa Talati
+
 Maha Naim
