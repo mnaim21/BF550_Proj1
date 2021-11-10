@@ -5,10 +5,10 @@ This repository contains a collaborative code written to develop an array packag
 This package aims to replicate the code used to develop numpy. Using pure Python, it contains an array class, with different attributes and linear algebra and statistical methods.
 
 ## Contributors:
-Dylan Beeber
+Dylan Beeber - dylan.beeber@gmail.com
 
-Meghana Peshawa
+Meghana Peshawa - meghapeshwa@gmail.com
 
-Vishwa Talati
+Vishwa Talati - 
 
-Maha Naim
+Maha Naim - mnaim21@bu.edu
